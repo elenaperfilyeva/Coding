@@ -13,7 +13,7 @@ class Solution(object):
         s = list(s)
 
         new_dict = {}
-        for key in indices:
+        for key in indices: 
             for value in s:
                 new_dict[key] = value
                 s.remove(value)
