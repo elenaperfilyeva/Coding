@@ -7,7 +7,7 @@
 # the special discount.
 
 class Solution(object):
-    def finalPrices(self, prices):
+    def finalPrices1(self, prices):
         """
         :type prices: List[int]
         :rtype: List[int]
@@ -22,5 +22,19 @@ class Solution(object):
             if not price_added:
                 final_prices.append(prices[i])
                 price_added = True
+        return final_prices
 
+    def finalPrices2(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: List[int]
+        """
+        final_prices = [-1] * len(prices)
+        for i in range(len(prices)):
+            for j in range(i + 1, len(prices)):
+                if prices[j] <= prices[i]:
+                    final_prices[i] = prices[i] - prices[j]
+                    break
+            if final_prices[i] == -1:
+                final_prices[i] = prices[i]
         return final_prices
