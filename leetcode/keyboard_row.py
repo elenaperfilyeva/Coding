@@ -9,7 +9,24 @@
 # the third row consists of the characters "zxcvbnm".
 
 class Solution(object):
-    def findWords(self, words):
+    def findWords1(self, words):
+        """
+        :type words: List[str]
+        :rtype: List[str]
+        """
+        first_row = set('qwerttyuiop')
+        second_row = set('asdfghjkl')
+        third_row = set('zxcvbnm')
+
+        res = []
+        for word in words:
+            word_set = set(word.lower())
+            if (word_set & first_row == word_set) or (word_set & second_row == word_set) or (
+                    word_set & third_row == word_set):
+                res.append(word)
+        return res
+
+    def findWords2(self, words):
         """
         :type words: List[str]
         :rtype: List[str]
