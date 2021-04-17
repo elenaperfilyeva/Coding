@@ -6,7 +6,7 @@
 # of the strings. Otherwise, return false.
 
 class Solution(object):
-    def areAlmostEqual(self, s1, s2):
+    def areAlmostEqual1(self, s1, s2):
         """
         :type s1: str
         :type s2: str
@@ -21,3 +21,12 @@ class Solution(object):
                 s2_diff.append(s2[i])
             if len(s1_diff)>2: return False
         return sorted(s1_diff)==sorted(s2_diff)
+
+    def areAlmostEqual2(self, s1, s2):
+        """
+        :type s1: str
+        :type s2: str
+        :rtype: bool
+        """
+        if not set(s1) == set(s2): return False
+        return sum(1 for i in range(len(s1)) if s1[i] != s2[i]) <= 2
