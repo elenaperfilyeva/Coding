@@ -5,7 +5,7 @@
 class Solution(object):
     def reverseOnlyLetters(self, S):
         """
-        :type S: str
+        :type S: str-+-
         :rtype: str
         """
         list_S = list(S)
